@@ -2,8 +2,8 @@
 A   CapitalT   class and methods that use the Cross class.
 
 Authors: David Mutchler, Dave Fisher, Valerie Galluzzi, Amanda Stouder,
-         their colleagues and PUT_YOUR_NAME_HERE.
-"""  # TODO: 1. PUT YOUR NAME IN THE ABOVE LINE.
+         their colleagues and Joe OConnell.
+"""  # done: 1. PUT YOUR NAME IN THE ABOVE LINE.
 
 import rosegraphics as rg
 
@@ -16,10 +16,10 @@ def main():
     print('Un-comment the calls in MAIN one by one')
     print(' to run the testing code as you complete the TODOs.')
 
-    # run_test_simple_t()
-    # run_test_set_colors()
-    # run_test_move_by()
-    # run_test_clone()
+    #run_test_simple_t()
+    #run_test_set_colors()
+    #run_test_move_by()
+    #run_test_clone()
 
 
 def run_test_simple_t():
@@ -142,6 +142,13 @@ class CapitalT(object):
         #   Implement this method
         #   Note: you will need to also implement attach_to before testing
         # --------------------------------------------------------------
+        lltop = rg.Point(intersection_center.x-.5*width,intersection_center.y)
+        urtop = rg.Point(intersection_center.x+.5*width,intersection_center.y-letter_thickness)
+        h_rect = rg.Rectangle(lltop,urtop)
+        llbottom = rg.Point(intersection_center.x-.5*letter_thickness,intersection_center.y+height)
+        urbottom = rg.Point(intersection_center.x+.5*letter_thickness,intersection_center.y)
+        v_rect = rg.Rectangle(llbottom,urbottom)
+
 
     def attach_to(self, window):
         """
@@ -167,6 +174,9 @@ class CapitalT(object):
         #   Implement and test this method by looking at the console and
         #     the graphics window (compare it to simple_t.pdf)
         # --------------------------------------------------------------
+        window.render()
+        v_rect.attach_to(window)
+        h_rect.attach_to(window)
 
     def set_colors(self, fill_color, outline_color):
         """
@@ -195,6 +205,10 @@ class CapitalT(object):
         #     run_test method in main. Compare the graphics window to
         #     set_colors.pdf.
         # --------------------------------------------------------------
+        v_rect.fill_color = fill_color
+        v_rcet.outline_color = outline_color
+        h_rect.fill_color = fill_color
+        h_rcet.outline_color = outline_color
 
     def move_by(self, dx, dy):
         """
