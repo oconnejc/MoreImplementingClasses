@@ -16,7 +16,7 @@ def main():
     print('Un-comment the calls in MAIN one by one')
     print(' to run the testing code as you complete the TODOs.')
 
-    #run_test_simple_t()
+    run_test_simple_t()
     #run_test_set_colors()
     #run_test_move_by()
     #run_test_clone()
@@ -142,11 +142,15 @@ class CapitalT(object):
         #   Implement this method
         #   Note: you will need to also implement attach_to before testing
         # --------------------------------------------------------------
-        lltop = rg.Point(intersection_center.x-.5*width,intersection_center.y)
-        urtop = rg.Point(intersection_center.x+.5*width,intersection_center.y-letter_thickness)
+        self.intersection_center = intersection_center
+        self.width = width
+        self.height = height
+        self.letter_thickness = letter_thickness
+        lltop = rg.Point(intersection_center.x-.5*width,intersection_center.y+.5*letter_thickness)
+        urtop = rg.Point(intersection_center.x+.5*width,intersection_center.y-.5*letter_thickness)
         h_rect = rg.Rectangle(lltop,urtop)
-        llbottom = rg.Point(intersection_center.x-.5*letter_thickness,intersection_center.y+height)
-        urbottom = rg.Point(intersection_center.x+.5*letter_thickness,intersection_center.y)
+        llbottom = rg.Point(intersection_center.x-.5*letter_thickness,intersection_center.y+height+.5*letter_thickness)
+        urbottom = rg.Point(intersection_center.x+.5*letter_thickness,intersection_center.y+.5*letter_thickness)
         v_rect = rg.Rectangle(llbottom,urbottom)
 
 
